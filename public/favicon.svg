@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="atFaviconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <!-- Background Shape -->
+  <rect width="128" height="128" rx="28" fill="url(#atFaviconGrad)" />
+  <!-- Inner Border Contrast -->
+  <rect x="2" y="2" width="124" height="124" rx="26" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" />
+  <!-- Bold Text Monogram AT -->
+  <text x="64" y="90" text-anchor="middle" fill="#ffffff" font-family="'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="70" font-weight="900" letter-spacing="-2">AT</text>
+</svg>
