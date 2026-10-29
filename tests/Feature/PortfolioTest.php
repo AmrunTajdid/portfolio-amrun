@@ -32,7 +32,7 @@ class PortfolioTest extends TestCase
 
         // Nomor WhatsApp & Aset
         $response->assertSee('6281295340314');
-        $response->assertSee('keuangan-keluarga.svg');
+        $response->assertSee('keuangan-keluarga.jpg');
         $response->assertSee('hajjclub.webp');
         $response->assertSee('amanah.webp');
         $response->assertSee('maziah.jpg');

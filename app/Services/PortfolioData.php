@@ -112,7 +112,7 @@ class PortfolioData
                 'categories' => ['web-app', 'fintech'],
                 'badge' => '⭐ Featured Web App',
                 'badge_color' => 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
-                'image' => 'images/projects/keuangan-keluarga.svg',
+                'image' => 'images/projects/keuangan-keluarga.jpg',
                 'summary' => 'Aplikasi web manajemen finansial keluarga dengan 4 kartu ringkasan kekayaan real-time, grafik arus kas 6 bulan, pelacak budget per kategori, multi-rekening/e-wallet, target tabungan, dan laporan PDF siap cetak.',
                 'the_challenge' => 'Banyak rumah tangga kesulitan melacak keluar-masuk dana yang tersebar di berbagai rekening bank dan dompet digital, memicu kebocoran pengeluaran serta gagalnya target tabungan masa depan.',
                 'the_solution' => 'Membangun aplikasi terintegrasi dengan visualisasi Chart.js interaktif, sistem multi-dompet (BCA, BSI, E-Wallet), perencanaan anggaran bulanan dengan fitur "Salin dari Bulan Lalu", dan penghitungan otomatis savings rate.',
