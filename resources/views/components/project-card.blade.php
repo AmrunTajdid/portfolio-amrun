@@ -13,7 +13,7 @@
 
     <!-- Image Area -->
     <div class="relative aspect-[16/10] bg-[#070b14] overflow-hidden border-b border-slate-800">
-        <img src="{{ asset($project['image']) }}" 
+        <img src="{{ asset($project['image']) }}?v={{ @filemtime(public_path($project['image'])) }}" 
              alt="{{ $project['title'] }}" 
              class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
              loading="lazy">

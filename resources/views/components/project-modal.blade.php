@@ -124,7 +124,7 @@
         if (!project) return;
 
         document.getElementById('modalSlug').innerText = (project.slug || 'project');
-        document.getElementById('modalImage').src = '{{ asset("") }}' + project.image;
+        document.getElementById('modalImage').src = '{{ asset("") }}' + project.image + '?v=' + new Date().getTime();
         document.getElementById('modalImage').alt = project.title;
 
         const badgeEl = document.getElementById('modalBadge');

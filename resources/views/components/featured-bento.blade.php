@@ -45,7 +45,7 @@
 
                 <!-- Image Showcase Area -->
                 <div class="relative overflow-hidden bg-[#070b14] aspect-[16/10] sm:aspect-[16/9] border-b border-slate-800">
-                    <img src="{{ asset($project['image']) }}" 
+                    <img src="{{ asset($project['image']) }}?v={{ @filemtime(public_path($project['image'])) }}" 
                          alt="{{ $project['title'] }}" 
                          class="w-full h-full object-cover object-top transition duration-500 ease-out group-hover:scale-[1.03]"
                          loading="lazy">
