@@ -39,10 +39,19 @@
             </div>
 
             <!-- Title & Badge -->
-            <div class="space-y-2">
+            <div class="space-y-3">
                 <div class="flex flex-wrap items-center gap-2">
                     <span id="modalBadge" class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border"></span>
                     <span id="modalClientType" class="text-xs font-semibold text-indigo-400 font-heading"></span>
+                    <div id="modalLiveUrlContainer" class="hidden">
+                        <a id="modalLiveUrlLink" href="#" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center gap-1.5 text-xs text-cyan-400 hover:text-cyan-300 font-semibold bg-cyan-500/10 border border-cyan-500/25 px-3 py-1 rounded-full transition"
+                           title="Kunjungi Website">
+                            <i class="fa-solid fa-globe text-xs"></i>
+                            <span id="modalLiveUrlText"></span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
                 </div>
                 <h3 id="modalTitle" class="text-2xl sm:text-3xl font-heading font-black text-white tracking-tight"></h3>
                 <p id="modalSummary" class="text-slate-300 text-sm leading-relaxed"></p>
@@ -91,16 +100,24 @@
             <span class="text-xs text-slate-400">
                 Tertarik menerapkan solusi serupa?
             </span>
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-3">
                 <button type="button" 
                         onclick="closeProjectModal()" 
                         class="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white rounded-xl transition">
                     Tutup
                 </button>
+                <a id="modalLiveUrlBtn" 
+                   href="#" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="hidden inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-indigo-600/25 transition-all hover:scale-105">
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    <span>Preview Project</span>
+                </a>
                 <a id="modalWhatsAppBtn" 
                    href="#" 
                    target="_blank" 
-                   class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 text-xs font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/25 transition-all hover:scale-105">
+                   class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 text-xs font-bold px-4 sm:px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/25 transition-all hover:scale-105">
                     <i class="fa-brands fa-whatsapp text-sm"></i>
                     <span>Tanya Terkait Proyek Ini</span>
                 </a>
@@ -161,6 +178,30 @@
 
         const waMsg = encodeURIComponent(project.whatsapp_msg || ('Halo Amrun, saya tertarik dengan proyek ' + project.title));
         document.getElementById('modalWhatsAppBtn').href = 'https://wa.me/' + USER_WHATSAPP + '?text=' + waMsg;
+
+        // Setup Live URL elements
+        const liveUrlContainer = document.getElementById('modalLiveUrlContainer');
+        const liveUrlLink = document.getElementById('modalLiveUrlLink');
+        const liveUrlText = document.getElementById('modalLiveUrlText');
+        const liveUrlBtn = document.getElementById('modalLiveUrlBtn');
+
+        if (project.live_url) {
+            let displayHost = '';
+            try {
+                displayHost = new URL(project.live_url).hostname.replace('www.', '');
+            } catch(e) {
+                displayHost = project.live_url;
+            }
+            liveUrlText.innerText = displayHost;
+            liveUrlLink.href = project.live_url;
+            liveUrlContainer.classList.remove('hidden');
+
+            liveUrlBtn.href = project.live_url;
+            liveUrlBtn.classList.remove('hidden');
+        } else {
+            liveUrlContainer.classList.add('hidden');
+            liveUrlBtn.classList.add('hidden');
+        }
 
         modal.classList.remove('hidden');
         document.body.classList.add('overflow-hidden');

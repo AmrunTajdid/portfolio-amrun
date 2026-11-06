@@ -38,17 +38,40 @@
                         <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
                         {{ $project['client_type'] }}
                     </span>
-                    <span class="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border {{ $project['badge_color'] }}">
-                        {{ $project['badge'] }}
-                    </span>
+                    <div class="flex items-center gap-2">
+                        @if(!empty($project['live_url']))
+                            <a href="{{ $project['live_url'] }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/20 text-[11px] font-semibold transition"
+                               title="Buka Website">
+                                <span>{{ parse_url($project['live_url'], PHP_URL_HOST) }}</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                            </a>
+                        @endif
+                        <span class="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border {{ $project['badge_color'] }}">
+                            {{ $project['badge'] }}
+                        </span>
+                    </div>
                 </div>
 
                 <!-- Image Showcase Area -->
-                <div class="relative overflow-hidden bg-[#070b14] aspect-[16/10] sm:aspect-[16/9] border-b border-slate-800">
+                <div class="relative overflow-hidden bg-[#070b14] aspect-[16/10] sm:aspect-[16/9] border-b border-slate-800 group/img">
                     <img src="{{ asset($project['image']) }}?v={{ @filemtime(public_path($project['image'])) }}" 
                          alt="{{ $project['title'] }}" 
                          class="w-full h-full object-cover object-top transition duration-500 ease-out group-hover:scale-[1.03]"
                          loading="lazy">
+                    @if(!empty($project['live_url']))
+                        <a href="{{ $project['live_url'] }}" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-white font-semibold text-xs backdrop-blur-xs">
+                            <span class="bg-slate-900/90 px-4 py-2 rounded-xl border border-white/20 shadow-xl flex items-center gap-2 hover:scale-105 transition-transform">
+                                <span>Kunjungi Website</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-cyan-400"></i>
+                            </span>
+                        </a>
+                    @endif
                 </div>
 
                 <!-- Card Content Body -->
@@ -73,13 +96,30 @@
                         </div>
 
                         <!-- Card Action Buttons -->
-                        <div class="flex items-center gap-3 pt-2">
-                            <button type="button" 
-                                    onclick="openProjectModal({{ $project['id'] }})"
-                                    class="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold text-xs py-3 px-4 rounded-xl shadow-md transition-all hover:scale-[1.02]">
-                                <span>Lihat Detail Studi Kasus</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
+                        <div class="flex flex-wrap items-center gap-3 pt-2">
+                            @if(!empty($project['live_url']))
+                                <a href="{{ $project['live_url'] }}" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold text-xs py-3 px-4 rounded-xl shadow-md shadow-indigo-600/25 transition-all hover:scale-[1.02]">
+                                    <span>Preview Project</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+                                <button type="button" 
+                                        onclick="openProjectModal({{ $project['id'] }})"
+                                        class="inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-semibold py-3 px-4 rounded-xl border border-slate-700 transition"
+                                        title="Detail Studi Kasus">
+                                    <i class="fa-solid fa-circle-info text-xs"></i>
+                                    <span>Detail</span>
+                                </button>
+                            @else
+                                <button type="button" 
+                                        onclick="openProjectModal({{ $project['id'] }})"
+                                        class="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold text-xs py-3 px-4 rounded-xl shadow-md transition-all hover:scale-[1.02]">
+                                    <span>Lihat Detail Studi Kasus</span>
+                                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </button>
+                            @endif
 
                             <a href="https://wa.me/{{ $profile['whatsapp'] }}?text={{ urlencode($project['whatsapp_msg']) }}" 
                                target="_blank"

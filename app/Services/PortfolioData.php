@@ -126,6 +126,7 @@ class PortfolioData
                     'Multi-Anggota Keluarga (Ayah, Ibu, Anak) & Laporan Finansial Siap Cetak PDF.'
                 ],
                 'tags' => ['Laravel 12', 'Tailwind CSS', 'Chart.js', 'MySQL', 'Alpine.js', 'PDF Export'],
+                'live_url' => 'https://keuangan-keluarga-amardella.vercel.app',
                 'featured' => true,
                 'col_span' => 'lg:col-span-2',
                 'whatsapp_msg' => 'Halo Amrun, saya tertarik dengan aplikasi Keuangan Keluarga yang Anda bangun. Bisakah kita berdiskusi lebih lanjut?'
@@ -154,6 +155,7 @@ class PortfolioData
                     'Pelacakan Konversi WhatsApp yang terhubung rapi ke event Google Tag Manager / GA4.'
                 ],
                 'tags' => ['Laravel 12', 'Tailwind CSS', 'Alpine.js', 'Vite', 'Google Ads Ready', 'WebP'],
+                'live_url' => 'https://hajjclub.id',
                 'featured' => true,
                 'col_span' => 'lg:col-span-1',
                 'whatsapp_msg' => 'Halo Amrun, saya tertarik dengan implementasi Landing Page Hajj Club yang Anda kembangkan untuk kebutuhan promosi/iklan.'
@@ -182,6 +184,7 @@ class PortfolioData
                     'Floating Sticky WhatsApp Bar khusus layar smartphone untuk mempermudah kontak darurat.'
                 ],
                 'tags' => ['Laravel 12', 'Tailwind CSS', 'JavaScript', 'Fintech Protection', 'Lead Capture'],
+                'live_url' => 'https://amanahprotection.com',
                 'featured' => true,
                 'col_span' => 'lg:col-span-1',
                 'whatsapp_msg' => 'Halo Amrun, saya ingin berkonsultasi mengenai pembuatan Landing Page Keuangan/Proteksi Dana seperti Amanah.'
@@ -210,6 +213,7 @@ class PortfolioData
                     'Formulir Cepat Terintegrasi WhatsApp + Skrip Pelacakan Google Ads & Meta Pixel.'
                 ],
                 'tags' => ['Laravel 12', 'Tailwind CSS', 'Responsive UI', 'WhatsApp Leads', 'SEO Authority'],
+                'live_url' => null,
                 'featured' => true,
                 'col_span' => 'lg:col-span-2',
                 'whatsapp_msg' => 'Halo Amrun, saya ingin bertanya tentang pembuatan Landing Page Travel & Haji Khusus seperti Maziah Tour.'

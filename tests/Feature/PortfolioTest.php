@@ -36,5 +36,11 @@ class PortfolioTest extends TestCase
         $response->assertSee('hajjclub.webp');
         $response->assertSee('amanah.webp');
         $response->assertSee('maziah.jpg');
+
+        // Live Project URLs & Preview Buttons
+        $response->assertSee('https://hajjclub.id');
+        $response->assertSee('https://amanahprotection.com');
+        $response->assertSee('https://keuangan-keluarga-amardella.vercel.app');
+        $response->assertSee('Preview Project');
     }
 }
